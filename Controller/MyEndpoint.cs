@@ -96,20 +96,3 @@ public class UserbyEmailEndpoint(UserService service) : Endpoint<GetUserByEmail,
     }
 }
 
-public class EmailEndpoint : Endpoint<UserRequestDTO, GetUserByEmail>
-{
-    public override void Configure()
-    {
-        Post("/api/user/getemail");
-        AllowAnonymous();
-    }
-
-    public override async Task HandleAsync(UserRequestDTO req, CancellationToken ct)
-    {
-        await SendAsync(new()
-        {
-            Email = req.Email.ToString(),
-        });
-    }
-}
-
