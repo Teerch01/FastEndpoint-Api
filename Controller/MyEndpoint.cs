@@ -74,7 +74,7 @@ public class UserLoginEndpoint : Endpoint<LoginRequest, LoginResponse>
 
 }
 
-public class UserbyEmailEndpoint(UserService service) : Endpoint<EmailResponse, UserResponseDTO>
+public class UserbyEmailEndpoint(UserService service) : Endpoint<GetUserByEmail, UserResponseDTO>
 {
     readonly UserService _service = service;
     public override void Configure()
@@ -83,20 +83,20 @@ public class UserbyEmailEndpoint(UserService service) : Endpoint<EmailResponse, 
         AllowAnonymous();
     }
 
-    public override async Task HandleAsync(EmailResponse email, CancellationToken ct)
+    public override async Task HandleAsync(GetUserByEmail User, CancellationToken ct)
     {
-        var user = await _service.GetUserByEmailAsync(email.Email);
+        var user = await _service.GetUserByEmailAsync(User.Email);
         await SendAsync(new()
         {
             FirstName = user.FirstName,
             LastName = user.LastName,
             UserName = user.UserName,
             Email = user.Email,
-        });
+        }, cancellation: ct);
     }
 }
 
-public class EmailEndpoint : Endpoint<UserRequestDTO, EmailResponse>
+public class EmailEndpoint : Endpoint<UserRequestDTO, GetUserByEmail>
 {
     public override void Configure()
     {

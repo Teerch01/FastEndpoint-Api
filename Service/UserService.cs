@@ -11,7 +11,7 @@ public class UserService(UserContext context)
 {
     private readonly UserContext _context = context;
 
-    public async Task<IEnumerable<UserResponseDTO>> GetUserAsync()
+    public async Task<IEnumerable<UserResponseDTO>?> GetUserAsync()
     {
         try
         {
