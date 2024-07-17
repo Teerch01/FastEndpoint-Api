@@ -7,5 +7,6 @@ namespace WebApi.Models;
         public string LastName { set; get; }
         public string UserName { set; get; }
         public string Email { set; get; }
-        public string Password { set; get; }
+        public byte[] Password { set; get; }
+        public byte[] PasswordKey { set; get; }
     }
