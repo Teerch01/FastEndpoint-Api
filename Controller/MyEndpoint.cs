@@ -74,6 +74,34 @@ public class UserLoginEndpoint : Endpoint<LoginRequest, LoginResponse>
 
 }
 
+public class AutenticateUserEndpoint(UserService service) : Endpoint<AutenticateUser, UserResponseDTO>
+{
+    readonly UserService _service = service;
+    public override void Configure()
+    {
+        Get("/api/user/authenticate");
+        AllowAnonymous();
+    }
+
+    public override async Task HandleAsync(AutenticateUser User, CancellationToken ct)
+    {
+        var user = await _service.AutenticateUserAsync(User.username, User.password);
+        if (user == null)
+        {
+            await SendUnauthorizedAsync(ct);
+            return;
+        }
+
+        await SendAsync(new()
+        {
+            FirstName = user.FirstName,
+            LastName = user.LastName,
+            UserName = user.UserName,
+            Email = user.Email,
+        }, cancellation: ct);
+    }
+}
+
 public class UserbyEmailEndpoint(UserService service) : Endpoint<GetUserByEmail, UserResponseDTO>
 {
     readonly UserService _service = service;
