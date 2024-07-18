@@ -85,7 +85,11 @@ public class AutenticateUserEndpoint(UserService service) : Endpoint<Autenticate
 
     public override async Task HandleAsync(AutenticateUser User, CancellationToken ct)
     {
+<<<<<<< HEAD
         var user = await _service.AutenticateUserAsync(User.Username, User.Password);
+=======
+        var user = await _service.AutenticateUserAsync(User.username, User.password);
+>>>>>>> 38d2029b5a1922424522bcde435a9170c68c241e
         if (user == null)
         {
             await SendUnauthorizedAsync(ct);

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Desktop\\fast-endpoints\\WebApi\\WebApi.csproj": {}
+    "d:\\Desktop\\fast-endpoints\\WebApi\\WebApi.csproj": {}
   },
   "projects": {
-    "D:\\Desktop\\fast-endpoints\\WebApi\\WebApi.csproj": {
+    "d:\\Desktop\\fast-endpoints\\WebApi\\WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Desktop\\fast-endpoints\\WebApi\\WebApi.csproj",
+        "projectUniqueName": "d:\\Desktop\\fast-endpoints\\WebApi\\WebApi.csproj",
         "projectName": "WebApi",
-        "projectPath": "D:\\Desktop\\fast-endpoints\\WebApi\\WebApi.csproj",
+        "projectPath": "d:\\Desktop\\fast-endpoints\\WebApi\\WebApi.csproj",
         "packagesPath": "C:\\Users\\oyund\\.nuget\\packages\\",
-        "outputPath": "D:\\Desktop\\fast-endpoints\\WebApi\\obj\\",
+        "outputPath": "d:\\Desktop\\fast-endpoints\\WebApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\oyund\\AppData\\Roaming\\NuGet\\NuGet.Config"
